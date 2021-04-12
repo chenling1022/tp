@@ -90,7 +90,7 @@ class findNearestTest {
         new FindNearest(map.getDataController()).findTopKFacility(testLibrary, facilityType, 2);
         String theOutput = getOut();
         String expectedOutput = "canteen1@N4-01-01\n" +
-                "canteen3@N5-04-01\n";
+                "canteen4@N5-04-02\n";
         assertEquals(expectedOutput, theOutput);
     }
 

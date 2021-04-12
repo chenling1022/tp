@@ -30,11 +30,6 @@ The class diagram shows clearly that each facility has one or more locations. Ca
 ![Class Diagram](assets/control.svg)
 Each facility has one or more locations.  All control classes, namely SeachFacility, FindNearest,FindInBuilding has an instance called dataController of FileManager to get information from the database on various facilities.
 
-We have 4 packages in total: Control, Entity, Seedu.Duke(boundary) and exception. 
-Control classes deal with the database of entity objects directly, return the wanted result after processing the database.  
-Entity classes include facilities that are available to be navigated to.
-Boundary classes take in user input and process the user input to pass to control class.
-Exception handles common exceptions such as invalid input exception etc to make sure the system runs smoothly.
 
 ### Sequence diagram for v2.0
 #### Sequence diagram for listAllLocations
@@ -92,11 +87,11 @@ To know all the available libraries  in the school.
 To know where a lecture theater is if a user knows its ID.
 
 9. View the location of a specific canteen in school `[nice-to-have]`
-* As a user , I can view the list of all canteens in the school.
+* As a user, I can view the list of all canteens in the school.
 To know where a canteen is if a user knows its ID.
 
-10. View the location of a specifc library in school `[nice-to-have]`
-* As a user , I can view the list of all canteens in the school.
+10. View the location of a specific library in school `[nice-to-have]`
+* As a user, I can view the list of all canteens in the school.
 To know where a library is if a user knows its ID.
 
 ### Non-Functional Requirements
@@ -108,8 +103,8 @@ To know where a library is if a user knows its ID.
 ## Miscellaneous
 
 ### Instructions for automated testing
-1. On IntelliJ, make sure the `src/test/java` folder is marked as a `Test Sources Root`. 
-   It should look like below after that.
+1. On IntelliJ, make sure the `src/test/java` folder is marked as a `Test Sources Root`.\
+   It should look like below after that.\
 ![Test Folder Screenshot](assets/test-folder.png)
 2. Right click on that folder, then click on `Run 'Tests in <package>'`
 3. Get the test results in the bottom panel of the IDE.

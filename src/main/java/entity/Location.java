@@ -2,6 +2,7 @@ package entity;
 
 //@@author zhangyongzhe20
 public class Location {
+    private static final double MILE_UNIT = 1.15077945;
     private double longitude;
     private double latitude;
     private String address;
@@ -26,7 +27,6 @@ public class Location {
      * @return
      */
     public double distanceTo(Location that) {
-        double Mile_Unit = 1.15077945;
         double lat1 = Math.toRadians(this.latitude);
         double lon1 = Math.toRadians(this.longitude);
         double lat2 = Math.toRadians(that.latitude);
@@ -38,7 +38,7 @@ public class Location {
 
         // each degree on a great circle of Earth is 60 nautical miles
         double nauticalMiles = 60 * Math.toDegrees(angle);
-        double statuteMiles = Mile_Unit * nauticalMiles;
+        double statuteMiles = MILE_UNIT * nauticalMiles;
         return statuteMiles;
     }
 

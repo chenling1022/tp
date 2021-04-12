@@ -39,16 +39,21 @@ public class Parser {
     }
 
     public static String getFindFacilityLocation(String userInput) {
-        try{
+        try {
             int index1 = userInput.indexOf('<');
             int index2 = userInput.indexOf('>');
             String location = userInput.substring(index1 + 1, index2);
             return location;
-        }catch (NumberFormatException e){
-            String errMsg="please try again! remember to input location name, the facility name that you want to look for and the number of nearest facilities you are searching for \nFor example:findFacility<library1><Canteen><2> ";
+        } catch (NumberFormatException e) {
+            String errMsg = "please try again! remember to input location name, "
+                    + "the facility name that you want to look for and the number of "
+                    + "nearest facilities you are searching for \nFor example:findFacility<library1><Canteen><2> ";
             System.out.println(errMsg);
-        }catch (StringIndexOutOfBoundsException e){
-            String errMsg="please try again! remember to input location name, the facility name that you want to look for and the number of nearest facilities you are searching for \nFor example:findFacility<library1><Canteen><2> ";
+        } catch (StringIndexOutOfBoundsException e) {
+            String errMsg = "please try again! remember to input location name, "
+                    + "the facility name that you want to look for and the "
+                    + "number of nearest facilities you are searching for "
+                    + "\nFor example:findFacility<library1><Canteen><2> ";
             System.out.println(errMsg);
         }
         return null;
@@ -56,25 +61,29 @@ public class Parser {
     }
 
     public static String getFindFacilityType(String userInput) {
-        try{
+        try {
             int index1 = userInput.indexOf('>');
             String substring = userInput.substring(index1 + 1);
             int index2 = substring.indexOf('<');
             int index3 = substring.indexOf('>');
             String facilityType = substring.substring(index2 + 1, index3);
             return facilityType;
-        }catch(NumberFormatException e){
-            String errMsg="please try again! remember to input location name, the facility name that you want to look for and the number of nearest facilities you are searching for \nFor example:findFacility<library1><Canteen><2> ";
+        } catch (NumberFormatException e) {
+            String errMsg = "please try again! remember to input location name, the facility name "
+                    + "that you want to look for and the number of nearest facilities you "
+                    + "are searching for \nFor example:findFacility<library1><Canteen><2> ";
             System.out.println(errMsg);
-        }catch(StringIndexOutOfBoundsException e){
-            String errMsg="please try again! remember to input location name, the facility name that you want to look for and the number of nearest facilities you are searching for \nFor example:findFacility<library1><Canteen><2> ";
+        } catch (StringIndexOutOfBoundsException e) {
+            String errMsg = "please try again! remember to input location name, the facility name "
+                    + "that you want to look for and the number of nearest "
+                    + "facilities you are searching for \nFor example:findFacility<library1><Canteen><2> ";
             System.out.println(errMsg);
         }
         return null;
     }
 
     public static int getTopK(String userInput) {
-       try{
+        try {
             int index1 = userInput.indexOf('>');
             String substring1 = userInput.substring(index1 + 1);
             int index2 = substring1.indexOf('>');
@@ -83,34 +92,43 @@ public class Parser {
             int index4 = substring2.indexOf('>');
             String stringTopK = substring2.substring(index3 + 1, index4);
             int topK = Integer.parseInt(stringTopK);
-            if(topK<=0){
+            if (topK <= 0) {
                 System.out.println("Please input a positive integer!");
             }
             return topK;
-        }catch (NumberFormatException e){
-           String errMsg="please try again! remember to input location name, the facility name that you want to look for and the number of nearest facilities you are searching for \nFor example:findFacility<library1><Canteen><2> ";
-           System.out.println(errMsg);
-        }catch(StringIndexOutOfBoundsException e){
-            String errMsg="please try again! remember to input location name, the facility name that you want to look for and the number of nearest facilities you are searching for \nFor example:findFacility<library1><Canteen><2> ";
+        } catch (NumberFormatException e) {
+            String errMsg = "please try again! remember to input location name, the facility name "
+                   + "that you want to look for and the number of nearest facilities you are searching"
+                   + " for \nFor example:findFacility<library1><Canteen><2> ";
+            System.out.println(errMsg);
+        } catch (StringIndexOutOfBoundsException e) {
+            String errMsg = "please try again! remember to input location name, the facility name "
+                    + "that you want to look for and the number of nearest facilities "
+                    + "you are searching for \nFor example:findFacility<library1><Canteen><2> ";
             System.out.println(errMsg);
         }
         return 0;
-
     }
 
     public static String getLocationsList(String userInput) {
-        try{
+        try {
             int index1 = userInput.indexOf('<');
             int index2 = userInput.indexOf('>');
             String location = userInput.substring(index1 + 1, index2);
             return location;
-        }catch (StringIndexOutOfBoundsException e) {
-            String errMsg = "please try again! remember to input the facility name in <>. \nFor example: listAllLocations<Canteen>";
+        } catch (StringIndexOutOfBoundsException e) {
+            String errMsg = "please try again! remember to input the facility name in <>. "
+                    + "\nFor example: listAllLocations<Canteen>";
             System.out.println(errMsg);
         }
         return null;
     }
 
+    /**
+     * Check if the command to execute is to listAllLocations
+     * @param userInput
+     * @return
+     */
     public static boolean isList(String userInput) {
         if (userInput.length() >= 16) {
             return userInput.startsWith("listAllLocations");
@@ -118,6 +136,11 @@ public class Parser {
         return false;
     }
 
+    /**
+     * Check if the command to execute is to search for a specific facility
+     * @param userInput
+     * @return
+     */
     public static boolean isSearch(String userInput) {
         if (userInput.length() >= 6) {
             return userInput.startsWith("search");
@@ -125,6 +148,11 @@ public class Parser {
         return false;
     }
 
+    /**
+     * Check if the command to execute is to search within a building
+     * @param userInput
+     * @return
+     */
     public static boolean isSearchIn(String userInput) {
         if (userInput.length() >= 9) {
             return userInput.startsWith("search in");
@@ -132,6 +160,11 @@ public class Parser {
         return false;
     }
 
+    /**
+     * Check if the command to execute is to find the top K facilities
+     * @param userInput
+     * @return
+     */
     public static boolean isFind(String userInput) {
         if (userInput.length() >= 12) {
             return userInput.startsWith("findFacility");

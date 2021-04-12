@@ -1,1 +1,1 @@
-03,lectureTheater1,LECTURETHEATER,25.5,26.6,NS3-05-43,NorthSpine
+01,lectureTheater1,LECTURETHEATER,25.5,26.6,NS3-05-43,NorthSpine

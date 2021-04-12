@@ -21,14 +21,14 @@ class MapTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Test
-    void executeFindNearestCommand() throws FacilityNotFoundException, EmptyInputException, InvalidCommandException, InvalidSearchException, BuildingNotFoundException {
+    void executeFindNearestCommand() throws FacilityNotFoundException,
+            EmptyInputException, InvalidCommandException, InvalidSearchException, BuildingNotFoundException {
         captureOut();
         Map map = new Map();
         String input = "findFacility <library1> <Canteen> <2>";
         map.executeCommand(input, Command.FIND_FACILITY);
         String theOutput = getOut();
-        String expectedOutput = "canteen1@N4-01-01\n" +
-                "canteen3@N5-04-01\n";
+        String expectedOutput = "canteen1@N4-01-01\n" + "canteen4@N5-04-02\n";
         assertEquals(expectedOutput, theOutput);
     }
 
@@ -44,14 +44,13 @@ class MapTest {
     }
 
     @Test
-    void executeFindNearestCommand_NoOfCanteenLessThanTopK() {
+    void executeFindNearestCommand_NoOfCanteenLessThanTopK_errMessageThrown()  {
         captureOut();
         Map map = new Map();
         String input = "findFacility <library1> <Canteen> <5>";
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
             map.executeCommand(input, Command.FIND_FACILITY);
         });
-
     }
 
     @Test
@@ -96,8 +95,11 @@ class MapTest {
     private String getOut() {
         System.setOut( new PrintStream( new FileOutputStream( FileDescriptor.out ) ) );
         return outContent.toString().replaceAll( "\r", "" );
-
     }
 
+    private String getErr() {
+        System.setErr( new PrintStream( new FileOutputStream( FileDescriptor.err ) ) );
+        return outContent.toString().replaceAll( "\r", "" );
+    }
 
 }

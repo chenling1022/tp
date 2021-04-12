@@ -8,25 +8,31 @@ import entity.Facility;
 
 //@@cswbibibi
 public class Feature {
-    public static <T> List<String> listAllLocations(String location) throws NullPointerException {
+    /**
+     * List all locations by a certain facility type.
+     * @param facilityType facility type {canteen, lecture theater, library}
+     * @return list of locations
+     * @throws NullPointerException
+     */
+    public static List<String> listAllLocations(String facilityType) throws NullPointerException {
         List<String> list = null;
         try {
             list = new ArrayList<>();
-            if (location.equalsIgnoreCase("canteen")) {
+            if (facilityType.equalsIgnoreCase("canteen")) {
                 FileManager fm = new FileManager();
                 List<Facility> canteens = fm.getCanteens();
                 for (int i = 0; i < canteens.size(); i++) {
                     System.out.println(canteens.get(i).getName() + "@" + canteens.get(i).getAddress());
                     list.add(canteens.get(i).getName() + "@" + canteens.get(i).getAddress());
                 }
-            } else if (location.equalsIgnoreCase("lecture theater")) {
+            } else if (facilityType.equalsIgnoreCase("lecture theater")) {
                 FileManager fm = new FileManager();
                 List<Facility> lectureTheaters = fm.getLectureTheaters();
                 for (int i = 0; i < lectureTheaters.size(); i++) {
                     System.out.println(lectureTheaters.get(i).getName() + "@" + lectureTheaters.get(i).getAddress());
                     list.add(lectureTheaters.get(i).getName() + "@" + lectureTheaters.get(i).getAddress());
                 }
-            } else if (location.equalsIgnoreCase("library")) {
+            } else if (facilityType.equalsIgnoreCase("library")) {
                 FileManager fm = new FileManager();
                 List<Facility> libraries = fm.getLibraries();
                 for (int i = 0; i < libraries.size(); i++) {

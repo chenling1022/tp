@@ -24,7 +24,7 @@ public class FileManager {
     protected static List<Facility> libraries;
     protected static List<Facility> lectureTheaters;
     //logger
-    private static final Logger LOGGER = Logger.getLogger(FileManager.class.getName() );
+    private static final Logger LOGGER = Logger.getLogger(FileManager.class.getName());
 
     /**
      * File Manager
@@ -63,7 +63,8 @@ public class FileManager {
         return canteens;
     }
 
-    public static List<Facility> getLibraries() { return libraries; }
+    public static List<Facility> getLibraries() {
+        return libraries; }
 
     public static List<Facility> getLectureTheaters() {
         return lectureTheaters;
@@ -97,36 +98,36 @@ public class FileManager {
                         if (!data.isEmpty()) {
                             String[] temp = data.split(",");
                             switch (i) {
-                                case 0:
-                                    facility = new Canteen();
-                                    break;
-                                case 1:
-                                    facility = new Library();
-                                    break;
-                                case 2:
-                                    facility = new LectureTheater();
-                                    break;
-                                default:
-                                    err.println("File can not be loaded");
-                                    System.exit(0);
+                            case 0:
+                                facility = new Canteen();
+                                break;
+                            case 1:
+                                facility = new Library();
+                                break;
+                            case 2:
+                                facility = new LectureTheater();
+                                break;
+                            default:
+                                err.println("File can not be loaded");
+                                System.exit(0);
                             }
                             facility.setFacilityID(temp[0]);
                             facility.setName(temp[1]);
                             facility.strToFacilityType(temp[2]);
                             facility.setLocation(temp[3], temp[4], temp[5], temp[6]);
                             switch (i) {
-                                case 0:
-                                    canteens.add(facility);
-                                    break;
-                                case 1:
-                                    libraries.add(facility);
-                                    break;
-                                case 2:
-                                    lectureTheaters.add(facility);
-                                    break;
-                                default:
-                                    err.println("Data can not be collected");
-                                    System.exit(0);
+                            case 0:
+                                canteens.add(facility);
+                                break;
+                            case 1:
+                                libraries.add(facility);
+                                break;
+                            case 2:
+                                lectureTheaters.add(facility);
+                                break;
+                            default:
+                                err.println("Data can not be collected");
+                                System.exit(0);
                             }
                         }
                     }

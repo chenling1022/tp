@@ -1,11 +1,13 @@
 package control;
-import org.junit.jupiter.api.Test;
-import seedu.duke.Feature;
-import seedu.duke.Parser;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import seedu.duke.Feature;
+import seedu.duke.Parser;
 
 //@@cswbibibi
 public class ListAllLocationsTest {
@@ -16,19 +18,14 @@ public class ListAllLocationsTest {
         String userInput1 = "listAllLocations<canteen>";
         String userInput2 = "listAllLocations<CANTEEN>";
         String userInput3 = "listAllLocations<Canteen>";
-        String userInput4 = "listAllLocations<CanTeen>";
-        String userInput5 = "listAllLocations<CanTEEn>";
-        ArrayList expectedOutput = new ArrayList<>(Arrays.asList("canteen1@N4-01-01", "canteen2@N3-02-02", "canteen3@N5-04-01"));
+        ArrayList expectedOutput = new ArrayList<>(Arrays.asList(
+                "canteen1@N4-01-01", "canteen2@N3-02-02", "canteen3@N5-04-01", "canteen4@N5-04-02"));
         String location1 = parser.getLocationsList(userInput1);
         String location2 = parser.getLocationsList(userInput2);
         String location3 = parser.getLocationsList(userInput3);
-        String location4 = parser.getLocationsList(userInput4);
-        String location5 = parser.getLocationsList(userInput5);
         assertEquals(expectedOutput, Feature.listAllLocations(location1));
         assertEquals(expectedOutput, Feature.listAllLocations(location2));
         assertEquals(expectedOutput, Feature.listAllLocations(location3));
-        assertEquals(expectedOutput, Feature.listAllLocations(location4));
-        assertEquals(expectedOutput, Feature.listAllLocations(location5));
     }
 
     @Test
